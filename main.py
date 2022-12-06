@@ -7,6 +7,7 @@ from buildingblocks.simulation import Simulation
 from utils.calibration import sample_ref_size_curve, fit_ref_curve, fit_best_volume, sample_ref_spread
 from utils.analysis import sim_analysis
 from models.qlearning_agent import QLearningAgent
+from models.dqn_agent import DQNAgent
 
 
 if __name__ == "__main__":
@@ -47,7 +48,9 @@ if __name__ == "__main__":
             rl_agent = QLearningAgent(Q, n_action=8, name='RL Agent')
 
             # # DQN
-            # rl_agent = torch.load('model.pth')
+            # dqn_model = torch.load('model.pth')
+            # rl_agent = DQNAgent(n_state=5, n_action=8, discount_rate=0.99, tau=1e-3, learning_rate=5e-4, name='RL agent')
+            # rl_agent.load_model(dqn_model)
 
             sim = Simulation(agent_params={'random': {'num': 1},
                                            'persistent': {'num': 1},
