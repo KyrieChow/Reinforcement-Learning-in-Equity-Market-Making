@@ -85,6 +85,9 @@ class DQNAgent(RLAgent):
         self.memory = Buffer(n_action, BUFFER_SIZE, BATCH_SIZE, seed)
         self.counter = 0
 
+    def load_model(model):
+        self.model = model
+
     def step(self, state, action, reward, state_next, done):
         self.memory.add(state, action, reward, state_next, done)
 
